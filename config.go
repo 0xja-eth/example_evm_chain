@@ -48,7 +48,8 @@ func EvmAppOptions(chainID string) error {
 		return nil
 	}
 
-	id := strings.Split(chainID, "-")[0]
+	// Replace "-" to "_"
+	id := strings.Replace(chainID, "-", "_", -1)
 	fmt.Printf("ChainID: %v\n", chainID)
 	coinInfo, found := ChainsCoinInfo[id]
 	if !found {

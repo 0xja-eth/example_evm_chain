@@ -51,7 +51,8 @@ func EvmAppOptions(chainID string) error {
 		return nil
 	}
 
-	id := strings.Split(chainID, "-")[0]
+	chainIdSlices := strings.Split(chainID, "-")
+	id := chainIdSlices[0]
 	if id == "" {
 		id = fmt.Sprintf("%s_%d", ChainName, ChainId)
 	} else {
@@ -60,6 +61,7 @@ func EvmAppOptions(chainID string) error {
 			id = fmt.Sprintf("%s_%d", idSlices[0], ChainId)
 		}
 	}
+	chainID = id + "-" + chainIdSlices[1]
 
 	// id := strings.Replace(chainID, "-", "_", -1)
 	fmt.Printf("ChainID: %v\n", chainID)

@@ -53,12 +53,12 @@ func EvmAppOptions(chainID string) error {
 
 	id := strings.Split(chainID, "-")[0]
 	if id == "" {
-		id = fmt.Sprintf("%s_%s", ChainName, ChainId)
-	}
-
-	idSlices := strings.Split(id, "_")
-	if len(idSlices) == 1 {
-		id = fmt.Sprintf("%s_%s", idSlices[0], ChainId)
+		id = fmt.Sprintf("%s_%d", ChainName, ChainId)
+	} else {
+		idSlices := strings.Split(id, "_")
+		if len(idSlices) == 1 {
+			id = fmt.Sprintf("%s_%d", idSlices[0], ChainId)
+		}
 	}
 
 	// id := strings.Replace(chainID, "-", "_", -1)

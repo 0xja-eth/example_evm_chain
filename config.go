@@ -5,6 +5,7 @@ package example_chain
 
 import (
 	"fmt"
+	"strconv"
 	"strings"
 
 	"cosmossdk.io/math"
@@ -24,6 +25,8 @@ func NoOpEVMOptions(_ string) error {
 }
 
 var sealed = false
+
+const ChainId = 9000
 
 // ChainsCoinInfo is a map of the chain id and its corresponding EvmCoinInfo
 // that allows initializing the app with different coin info based on the
@@ -48,8 +51,8 @@ func EvmAppOptions(chainID string) error {
 		return nil
 	}
 
-	// Replace "-" to "_"
-	id := strings.Replace(chainID, "-", "_", -1)
+	id := strings.Split(chainID, "-")[0] + strconv.Itoa(ChainId)
+	//id := strings.Replace(chainID, "-", "_", -1)
 	fmt.Printf("ChainID: %v\n", chainID)
 	coinInfo, found := ChainsCoinInfo[id]
 	if !found {

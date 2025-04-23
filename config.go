@@ -26,7 +26,7 @@ func NoOpEVMOptions(_ string) error {
 
 var sealed = false
 
-const ChainId = 9000
+const ChainId = 262144
 
 // ChainsCoinInfo is a map of the chain id and its corresponding EvmCoinInfo
 // that allows initializing the app with different coin info based on the

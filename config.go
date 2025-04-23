@@ -51,7 +51,7 @@ func EvmAppOptions(chainID string) error {
 		return nil
 	}
 
-	id := strings.Split(chainID, "-")[0] + strconv.Itoa(ChainId)
+	id := strings.Split(chainID, "-")[0] + "_" + strconv.Itoa(ChainId)
 	//id := strings.Replace(chainID, "-", "_", -1)
 	fmt.Printf("ChainID: %v\n", chainID)
 	coinInfo, found := ChainsCoinInfo[id]
